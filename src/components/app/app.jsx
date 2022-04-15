@@ -5,9 +5,9 @@ import Form from '../../pages/form/form';
 
 const App = () => {
   return (
-    //  <Main />
+      // <Main />
     //  <Archive />
-     <Form/>
+       <Form/>
   )
 }
 export default App;
