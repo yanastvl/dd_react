@@ -7,7 +7,7 @@ import { AppRoute } from "../../const";
 const Form = () => {
     return(
         <>
-      <Header mode={AppRoute.MAIN}/>
+      <Header mode={AppRoute.EVENT}/>
       <section className="main__wrapper">
         <Filter/>
         <Event/>
