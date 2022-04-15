@@ -1,6 +1,8 @@
 import React from "react";
+import { AppRoute } from '../../const';
+import CreateButton from "../create-button/create-button";
 
-const Filter = () =>{
+const Filter = ({mode}) =>{
 return(
     <section className="main__filter filter">
     <input
@@ -51,10 +53,7 @@ return(
     <label htmlFor="filter__favorite" className="filter__label"
       >Избранное <span className="filter__favorite-count count">1</span></label
     >
-    <button
-      name="control"
-      className="btn-add"
-    >Создать</button>
+      {mode === AppRoute.MAIN && <CreateButton />}
   </section>)
 
 }

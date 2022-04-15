@@ -2,16 +2,14 @@ import React from "react";
 import Header from "../../components/header/header";
 import Filter from "../../components/filter/filter";
 import Board from "../../components/board/board";
-import { AppRoute } from "../../const";
 
-const Main = () => {
-  const states = {hasSorting: true, hasLoadMore: true};
+const Main = ({mode}) => {
   return(
     <>
-      <Header mode={AppRoute.MAIN}/>
+      <Header mode={mode}/>
       <section className="main__wrapper">
-        <Filter/>
-        <Board states={states}/>
+        <Filter mode={mode}/>
+        <Board mode={mode}/>
       </section>
       </>
     )
