@@ -14,6 +14,6 @@ const App = () => {
     <Route path={AppRoute.EVENT} exact component={Form}/>
     </Switch>
     </BrowserRouter>
-  )
-}
+  )}
+
 export default App;

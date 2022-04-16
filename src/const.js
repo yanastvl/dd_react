@@ -4,4 +4,3 @@ export const AppRoute = {
     ADD: '/event',
     EVENT: '/event/:id?',
   };
-  

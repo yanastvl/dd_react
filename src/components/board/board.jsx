@@ -2,19 +2,22 @@ import React from "react";
 import Card from "../card/card"
 import Sorting from "../sorting/sorting"
 import LoadMore from "../load-more/load-more"
+import Event from "../event/event";
+import {AppRoute} from "../../const";
 
-const Board = (props) => {
-    const hasSorting = props.states.hasSorting;
-    const hasLoadMore = props.states.hasLoadMore;
-    return(
+const Board = ({mode}) => {
+  return (
     <section className="board">
-        {hasSorting ? <Sorting /> : null}
+      {mode === AppRoute.MAIN && <Sorting/>}
+      {mode !== AppRoute.EVENT && (
         <div className="board__events">
-            <Card />
-            </div>
-            {hasLoadMore ? <LoadMore /> : null}
-            </section>
-            )
-        }
+          <Card/>
+        </div>
+      )}
+      {mode === AppRoute.EVENT && <Event/>}
+      {mode !== AppRoute.EVENT && <LoadMore/>}
+    </section>
+  )
+}
 
 export default Board;

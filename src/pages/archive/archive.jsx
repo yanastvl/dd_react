@@ -13,7 +13,7 @@ const Archive = (props) => {
   const states = {hasSorting: false, hasLoadMore: true};
   return (
     <>
-      <Header mode={AppRoute.ARCHIVE}/>
+      <Header mode={states}/>
       <section className="main__wrapper">
         <div>{render()}</div>
         <Board states={states} />
