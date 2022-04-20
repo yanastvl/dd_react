@@ -3,13 +3,15 @@ import Header from "../../components/header/header";
 import Filter from "../../components/filter/filter";
 import Board from "../../components/board/board";
 
-const Main = ({mode}) => {
+const Main = (props) => {
+  const path = props.match.path;
+
   return(
     <>
-      <Header mode={mode}/>
+      <Header path={path}/>
       <section className="main__wrapper">
-        <Filter mode={mode}/>
-        <Board mode={mode}/>
+        <Filter path={path}/>
+        <Board path={path}/>
       </section>
       </>
     )

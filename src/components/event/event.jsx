@@ -1,10 +1,12 @@
 import React from "react";
 
-const Event = () => {
+const Event = ({id}) => {
     return(
             <section className="board">
             <form className="board__form">
-            <h2 className="board__title">Добавление события</h2>
+            <h2 className="board__title">
+              {id ? 'Редактирование' : 'Добавление'} события
+            </h2>
             <fieldset className="board__field board__field--theme">
               <label htmlFor="theme" className="board__label board__label--theme">Тема:</label>
               <textarea
@@ -32,7 +34,9 @@ const Event = () => {
               />
             </fieldset>
             <div className="btns">
-              <button type="submit" className="btn-submit">Добавить</button>
+              <button type="submit" className="btn-submit">
+                {id ? 'Сохранить' : 'Добавить'}
+              </button>
               <button type="reset" className="btn-reset">Очистить</button>
             </div>
           </form>
