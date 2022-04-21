@@ -2,18 +2,19 @@ import React from "react";
 import Header from "../../components/header/header";
 import Filter from "../../components/filter/filter";
 import Event from "../../components/event/event";
+import { AppRoute } from "../../const";
 import { useParams } from 'react-router-dom';
 
-const Form = (props) => {
-  const {id} = useParams();
-  const path = props.match.path;
+const Form = ({events}) => {
+  const { id } = useParams();
+  const event = events.find(x => x._id === id);
 
   return(
       <>
-    <Header path={path}/>
+    <Header path={AppRoute.EVENT}/>
     <section className="main__wrapper">
-      <Filter path={path}/>
-      <Event id={id}/>
+      <Filter />
+      <Event event={event}/>
     </section>
     </>
   )
