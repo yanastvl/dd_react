@@ -4,10 +4,12 @@ import Filter from "../../components/filter/filter";
 import Event from "../../components/event/event";
 import { AppRoute } from "../../const";
 import { useParams } from 'react-router-dom';
+import { events } from "../../store/index";
+import { observer } from 'mobx-react-lite';
 
-const Form = ({events}) => {
+const Form = observer(() => {
   const { id } = useParams();
-  const event = events.find(x => x._id === id);
+  const event = events.data.find(event => event._id === id);
 
   return(
       <>
@@ -18,6 +20,6 @@ const Form = ({events}) => {
     </section>
     </>
   )
-}
+})
 
 export default Form;

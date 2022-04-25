@@ -1,14 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import moment from "moment";
+import { events } from "../../store/index";
+import { useHistory } from "react-router-dom";
 
 const Event = ({event}) => {
+  const history = useHistory();
 
   const [form, setForm] = useState({
     theme: event? event.theme : '',
     comment: event? event.comment : '',
-    date: event? moment(event.date).format('yyyy-MM-DDThh:mm') : '',
+    date: event? event.date : '',
   })
+
 
   const handleFieldChange = (evt) => {
     const { name, value } = evt.target;
@@ -17,6 +20,21 @@ const Event = ({event}) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    if (event) {
+      events.editEvent({
+        id: event._id,
+        theme: form.theme,
+        comment: form.comment,
+        date: form.date? form.date : new Date(),
+      })
+    } else {
+      events.addEvent({
+        theme: form.theme,
+        comment: form.comment,
+        date: form.date? form.date : new Date(),
+      })
+    }
+    history.push('/');
   }
 
     return(
@@ -58,7 +76,9 @@ const Event = ({event}) => {
               />
             </fieldset>
             <div className="btns">
-              <button type="submit" className="btn-submit">
+              <button 
+                type="submit" 
+                className="btn-submit">
                 {event ? 'Сохранить' : 'Добавить'}
               </button>
               <button type="reset" className="btn-reset">Очистить</button>
@@ -66,6 +86,6 @@ const Event = ({event}) => {
           </form>
         </section>
     )
-}
+};
 
 export default Event;
