@@ -9,8 +9,8 @@ const Error404 = () => {
             <Header/>
                 <section className="main__error404">
                     <p className="text__error404">404</p>
-                    <p className="text__error404">Страница не найдена</p>
-                    <Link to={AppRoute.MAIN} button name="control" className="btn-back-to-main">На главную</Link>
+                    <p className="text__error404">Страница не найдена.</p>
+                    <Link to={AppRoute.MAIN} p className="text__error--link">Перейти на главную</Link>
                 </section>
         </>
     )

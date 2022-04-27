@@ -433,7 +433,11 @@ body {
 }
 
 .card__btn--favorites {
-  background-image: url('../img/favorite.svg');
+  -webkit-mask: url('../img/favorite.svg');
+  -webkit-mask-size: cover;
+  mask: url('../img/favorite.svg');
+  mask-size: cover;
+  background-color: #000000;
 }
 
 .card__btn--remove {
@@ -532,4 +536,18 @@ body {
 .btn-back-to-main:hover {
   background-color: #194058;
   color: #b4b4b4;
+}
+
+.text__error--link {
+  display: block;
+  text-align: center;
+  margin: 30px;
+  font-size: 30px;
+  text-decoration: underline;
+  color: #183a4f;
+}
+
+.text__error--link:hover {
+  color: #101011;
+  opacity: .5;
 }
