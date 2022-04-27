@@ -3,21 +3,21 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 import Main from "../../pages/main/main";
 import Archive from "../../pages/archive/archive";
 import Form from "../../pages/form/form";
-import { AppRoute } from '../../const';
 import Error404 from "../../pages/error404/error404";
+import { AppRoute } from '../../const';
 
-const App = ({events}) => {
+const App = () => {
   return (
     <BrowserRouter>
     <Switch>
       <Route path={AppRoute.MAIN} exact>
-        <Main events={events}/>
+        <Main />
       </Route>
       <Route path={AppRoute.ARCHIVE} exact>
-        <Archive events={events}/>
+        <Archive />
       </Route>
       <Route path={AppRoute.EVENT} exact>
-        <Form events={events}></Form>
+        <Form />
       </Route>
       <Route > <Error404 /> </Route>
     </Switch>
