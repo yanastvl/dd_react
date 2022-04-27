@@ -9,7 +9,7 @@ const Event = ({event}) => {
   const [form, setForm] = useState({
     theme: event? event.theme : '',
     comment: event? event.comment : '',
-    date: event? event.date : '',
+    date: event? event.date : new Date(),
   })
 
 
@@ -25,13 +25,13 @@ const Event = ({event}) => {
         id: event._id,
         theme: form.theme,
         comment: form.comment,
-        date: form.date? form.date : new Date(),
+        date: form.date,
       })
     } else {
       events.addEvent({
         theme: form.theme,
         comment: form.comment,
-        date: form.date? form.date : new Date(),
+        date: form.date,
       })
     }
     history.push('/');
