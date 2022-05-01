@@ -8,14 +8,14 @@ import { observer } from 'mobx-react-lite';
 
 const Main = observer(() => {
   const { pathname } = useLocation();
-  const { notArchiveData } = events;
+  const { filtredData } = events;
 
   return(
     <>
       <Header path={pathname}/>
       <section className="main__wrapper">
         <Filter path={pathname}/>
-        <Board events={notArchiveData}/>
+        <Board events={filtredData}/>
       </section>
       </>
     )
